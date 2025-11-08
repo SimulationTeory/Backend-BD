@@ -25,6 +25,7 @@ class Process:
        early = self.graphCalc.calc_early(graph)
        self.graphCalc.calc_last(graph,early)
        holgura = self.graphCalc.calc_holgura(graph)
+       self.graphCalc.calCriticalPath(graph)
       
        return  {"early":f"{early}"}
     
