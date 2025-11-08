@@ -1,7 +1,7 @@
 # Backend-BD
 Backend en Python, FastAPI, para una lógica del proyecto
 ---
-#Requerimientos
+# Requerimientos
 - python 3.13.3
 
 - Librerías necesarias:
@@ -11,12 +11,11 @@ Backend en Python, FastAPI, para una lógica del proyecto
 - matplotlib -> pip install matplotlib
 - servidor uvicorn -> pip install uvicorn 
 
-- Ejecutar el servidor: uvicorn main:app --reload
+- Ejecutar el servidor : uvicorn main:app --reload
   http://localhost:8000/docs
 
----
----
-#Datos de prueba 
+
+# Datos de prueba 
 {
    "nodes": [
 "0−20","20−40","40−60","20−50","50−70","70−90","0−10","10−30","30−80","0−30","20−60","60−80",
@@ -35,4 +34,4 @@ Backend en Python, FastAPI, para una lógica del proyecto
 
   ]
 }
----
+
