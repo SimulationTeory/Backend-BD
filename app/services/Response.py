@@ -7,11 +7,11 @@ class Response:
     
     def resposeCaseA(self,data):
         self.response["SemanasC1"] = data["numero_semanas"]
-        self.response["pathA"] = list(data["criticalPath"])
+        self.response["pathA"] = data["criticalPath"]
    
     def resposeCaseB(self,data,resultProb):
         self.response["SemanasC2"]= data["numero_semanas"]
-        self.response["pathB"] = list(data["criticalPath"])
+        self.response["pathB"] = data["criticalPath"]
         self.response["varianza"] = resultProb["varianza"]
         self.response["probabilidad"] = resultProb["probabilidad"]
 

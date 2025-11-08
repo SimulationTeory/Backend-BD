@@ -83,9 +83,14 @@ class GraphCalc:
             g.add_edge(values["nodeI"],values["nodeF"],weight=values["weight"])
         
         numero_semanas = round(nx.dag_longest_path_length(g,weight="weight"),2)
+        ruta = nx.dag_longest_path(graph,weight="weight")
+        path = []
+        for i in range(0,len(ruta)-1):
+            path.append(f"{ruta[i]}-{ruta[i+1]}")
+        
         data = {
             "numero_semanas" : float(numero_semanas),
-            "criticalPath": criticalPath.keys()
+            "criticalPath": path
         }
         return data
     

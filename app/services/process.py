@@ -28,6 +28,7 @@ class Process:
        self.graphCalc.calc_last(graph,early)
        holgura = self.graphCalc.calc_holgura(graph)
        crticalPath = self.graphCalc.calCriticalPath(graph)
+       self.printGraph(graph,crticalPath["criticalPath"])
 
        self.respose.resposeCaseA(crticalPath)
        
@@ -68,13 +69,27 @@ class Process:
 
         
 
-    def printGraph(self,graph):
+    def printGraph(self,graph,criticalPath):
          g = graph
          pos = nx.circular_layout(g)
          weights = nx.get_edge_attributes(g,"weight")
-         nx.draw(g,pos,with_labels=True,node_size=800,node_color="lightblue",edge_color="green")
+          
+         edgesColor = []
+         edges = graph.edges()
+
+         for nodeI,nodeF in edges:
+             edge = f"{nodeI}-{nodeF}"
+             if edge in criticalPath:
+              edgesColor.append("red")
+             else :
+              edgesColor.append("blue")
+             
+
+
+
+         nx.draw(g,pos,with_labels=True,node_size=800,node_color="lightblue",edge_color=edgesColor)
          nx.draw_networkx_edge_labels(g,pos,edge_labels= weights, font_color="red")
-         #pl.savefig("grafo.png")
-         pl.show()
+         pl.savefig("grafo2.png")
+         
         
         
