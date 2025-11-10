@@ -5,15 +5,15 @@ class GraphCalc:
        
         for node in graph.nodes:
             graph.nodes[node]["early"] = 0
-
+        dataEarly = []
         listNodes = nx.topological_sort(graph)
         
         for node in listNodes:
             predecesores = list(graph.predecessors(node))
             if not predecesores:
                 graph.nodes[node]["early"] = 0.0
+                dataEarly.append(0.0)
             else:
-                
                 early = 0
                 for origen in predecesores:
                     
@@ -22,7 +22,10 @@ class GraphCalc:
                     if value_early > early:
                         early = value_early
                 graph.nodes[node]["early"] = early
-
+                dataEarly.append(early)
+                
+        
+        print(dataEarly.__len__())     
         return graph.nodes[90]["early"]
     
     
@@ -93,6 +96,20 @@ class GraphCalc:
             "criticalPath": path
         }
         return data
+    def dataGraph(self,graph):
+       
+       data = {}
+       nodes = graph.nodes()
+       
+       
+       for node in nodes :
+          data[f"{node}"] = {
+          "early" : float(graph.nodes[node]["early"]),
+          "last" : float(graph.nodes[node]["last"]),
+          "holgura" : float( graph.nodes[node]["holgura"])}
+       
+       return data
+
     
 
 

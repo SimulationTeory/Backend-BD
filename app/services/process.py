@@ -28,9 +28,10 @@ class Process:
        self.graphCalc.calc_last(graph,early)
        holgura = self.graphCalc.calc_holgura(graph)
        crticalPath = self.graphCalc.calCriticalPath(graph)
-       self.printGraph(graph,crticalPath["criticalPath"])
-
-       self.respose.resposeCaseA(crticalPath)
+       #self.printGraph(graph,crticalPath["criticalPath"])
+       dataNodes = self.graphCalc.dataGraph(graph)
+       self.respose.resposeCaseA(crticalPath,dataNodes)
+       
        
        graph2 = graph.copy()
        graph2[20][40]["weight"]= 0
@@ -43,10 +44,9 @@ class Process:
        max = int(result["numero_semanas"])
        
        resultProb = self.operations.varianzaTipica(crticalPathB,graph2,max)
+       dataNodes2 = self.graphCalc.dataGraph(graph2)
        self.respose.resposeCaseB(result,resultProb)
 
-
-      
        return  self.respose.jsonResponse()
     
     def creategraph(self,data):
@@ -64,7 +64,7 @@ class Process:
             n = node.split("−")
             g.add_edge(int(n[0]),int(n[1]),weight=weightEdge,varianza=varianza)
             
-
+      
         return g
 
         
@@ -89,7 +89,11 @@ class Process:
 
          nx.draw(g,pos,with_labels=True,node_size=800,node_color="lightblue",edge_color=edgesColor)
          nx.draw_networkx_edge_labels(g,pos,edge_labels= weights, font_color="red")
-         pl.savefig("grafo2.png")
+         pl.savefig("grafo.png")
          
         
-        
+
+
+
+              
+         
