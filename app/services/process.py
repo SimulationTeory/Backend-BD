@@ -15,7 +15,7 @@ class Process:
        
        dt = pd.DataFrame(data.nodes)
        dt.rename(columns={dt.columns[0]:"Nodos"},inplace=True)
-       dt["a"] = pd.Series(data.timepo_op)
+       dt["a"] = pd.Series(data.tiempo_op)
        dt["m"] = pd.Series(data.tiempo_es)
        dt["b"] = pd.Series(data.tiempo_pe)
        
@@ -67,12 +67,4 @@ class Process:
       
         return g
 
-        
-
-         
-        
-
-
-
-              
-         
+    
