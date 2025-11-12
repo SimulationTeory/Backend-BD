@@ -27,10 +27,10 @@ class Process:
        early = self.graphCalc.calc_early(graph)
        self.graphCalc.calc_last(graph,early)
        holgura = self.graphCalc.calc_holgura(graph)
-       crticalPath = self.graphCalc.calCriticalPath(graph)
+       crticalPathA = self.graphCalc.calCriticalPath(graph)
        
-       dataNodes = self.graphCalc.dataGraph(graph)
-       self.respose.resposeCaseA(crticalPath,dataNodes)
+       dataNodesA = self.graphCalc.dataGraph(graph)
+       self.respose.resposeCaseA(crticalPathA,dataNodesA)
        
        
        graph2 = graph.copy()
@@ -40,12 +40,14 @@ class Process:
        self.graphCalc.calc_last(graph2,early)
        holgura = self.graphCalc.calc_holgura(graph2)
        result = self.graphCalc.calCriticalPath(graph2)
+       dataNodesB = self.graphCalc.dataGraph(graph)
        crticalPathB = list(result["criticalPath"])
        max = int(result["numero_semanas"])
        
        resultProb = self.operations.varianzaTipica(crticalPathB,graph2,max)
        dataNodes2 = self.graphCalc.dataGraph(graph2)
-       self.respose.resposeCaseB(result,resultProb)
+       self.respose.resposeCaseB(result,resultProb,dataNodes2)
+
 
        return  self.respose.jsonResponse()
     
@@ -67,4 +69,12 @@ class Process:
       
         return g
 
-    
+        
+
+         
+        
+
+
+
+              
+         
