@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from app.model.model import DataJson
-from app.services.process import Process
+from model.model import DataJson
+from services.process import Process
 
 router = APIRouter()
 

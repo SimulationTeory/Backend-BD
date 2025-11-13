@@ -1,7 +1,7 @@
 import pandas as pd
-from app.services.GraphCalcs import GraphCalc
-from app.services.Operations import Operations
-from app.services.Response import Response
+from services.GraphCalcs import GraphCalc
+from services.Operations import Operations
+from services.Response import Response
 import networkx as nx
 import matplotlib.pyplot as pl
 

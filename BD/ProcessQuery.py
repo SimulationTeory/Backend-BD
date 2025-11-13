@@ -1,4 +1,4 @@
-from app.BD.Conexion import ConectionBD
+from BD.Conexion import ConectionBD
 from sqlalchemy import text
 import pandas as pd
 

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.BD.ProcessQuery import ProcessQuery
+from BD.ProcessQuery import ProcessQuery
 
 router = APIRouter()
 
