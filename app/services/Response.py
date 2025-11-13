@@ -74,11 +74,6 @@ class Response:
      Extrae los tiempos PERT (pesos) de las aristas del grafo y los almacena 
      en el diccionario de respuesta bajo la clave correspondiente al caso.
 
-     Este método recorre todas las aristas del grafo, recupera el atributo
-     "weight" asociado a cada relación entre nodos y construye un diccionario
-     con el formato "A-B": valor. Finalmente, guarda estos tiempos PERT en
-     self.response usando una clave que identifica el caso procesado.
-
      Args:
         graph (networkx.DiGraph): Grafo que contiene los pesos en sus aristas.
         case (str): Identificador del caso (por ejemplo, 'A' o 'B') para
