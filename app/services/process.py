@@ -5,6 +5,7 @@ from app.services.Response import Response
 import networkx as nx
 import matplotlib.pyplot as pl
 
+
 class Process:
     def __init__(self):
         self.graphCalc = GraphCalc()
@@ -30,7 +31,7 @@ class Process:
        crticalPathA = self.graphCalc.calCriticalPath(graph)
        
        dataNodesA = self.graphCalc.dataGraph(graph)
-       self.respose.resposeCaseA(crticalPathA,dataNodesA)
+       self.respose.resposeCaseA(crticalPathA,dataNodesA,graph)
        
        
        graph2 = graph.copy()
@@ -46,7 +47,7 @@ class Process:
        
        resultProb = self.operations.varianzaTipica(crticalPathB,graph2,max)
        dataNodes2 = self.graphCalc.dataGraph(graph2)
-       self.respose.resposeCaseB(result,resultProb,dataNodes2)
+       self.respose.resposeCaseB(result,resultProb,dataNodes2,graph2)
 
 
        return  self.respose.jsonResponse()

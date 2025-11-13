@@ -1,8 +1,12 @@
 from fastapi import APIRouter
+from app.BD.ProcessQuery import ProcessQuery
 
 router = APIRouter()
 
-@router.get("/")
-def get_data():
+@router.post("/")
+def get_data(id : int):
 
-    return {"mes":"Hola mundo"}
+    process = ProcessQuery()
+    process.getData(id)
+
+    

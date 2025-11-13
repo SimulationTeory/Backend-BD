@@ -42,7 +42,6 @@ class GraphCalc:
                 graph.nodes[node]["early"] = early
                 dataEarly.append(early)
 
-        print(dataEarly.__len__())
         return graph.nodes[90]["early"]
 
     def calc_last(self, graph, max):
@@ -87,8 +86,7 @@ class GraphCalc:
         Args:
             graph (networkx.DiGraph): Grafo dirigido con tiempos tempranos y tardíos.
 
-        Returns:
-            None
+       
         """
         for node in graph:
             graph.nodes[node]["holgura"] = round(
@@ -100,7 +98,7 @@ class GraphCalc:
         Calcula el camino crítico del proyecto a partir de los valores de holgura.
 
         Identifica las aristas y nodos con holgura cero, y determina el camino 
-        más largo (ruta crítica) en el grafo.
+        más largo en el grafo.
 
         Args:
             graph (networkx.DiGraph): Grafo dirigido con tiempos calculados.
@@ -159,5 +157,6 @@ class GraphCalc:
                 "last": float(graph.nodes[node]["last"]),
                 "holgura": float(graph.nodes[node]["holgura"])
             }
-
+    
+     
         return data

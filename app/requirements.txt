@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+networkx
+matplotlib
+pandas
+numpy
+scipy
+sqlalchemy
+pyodbc
+

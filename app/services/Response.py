@@ -8,7 +8,7 @@ class Response:
         """Inicializa el objeto Response con un diccionario vacío para almacenar los resultados."""
         self.response = {}
     
-    def resposeCaseA(self, data, nodeData):
+    def resposeCaseA(self, data, nodeData,graph):
         """
         Genera la respuesta para el Caso A de la simulación.
 
@@ -20,8 +20,9 @@ class Response:
         self.response["SemanasC1"] = data["numero_semanas"]
         self.response["pathA"] = data["criticalPath"]
         self.nodesData(data, nodeData, "A")
+        self.tiemposPert(graph,"A")
 
-    def resposeCaseB(self, data, resultProb, nodeData):
+    def resposeCaseB(self, data, resultProb, nodeData,graph):
         """
         Genera la respuesta para el Caso B de la simulación.
 
@@ -36,6 +37,7 @@ class Response:
         self.response["varianza"] = resultProb["varianza"]
         self.response["probabilidad"] = resultProb["probabilidad"]
         self.nodesData(data, nodeData, "B")
+        self.tiemposPert(graph,"B")
 
     def nodesData(self, data, nodeData, case):
         """
@@ -46,7 +48,7 @@ class Response:
             nodeData (dict): Diccionario con datos de cada nodo (early, last, holgura).
             case (str): Identificador del caso ('A' o 'B').
         """
-        print(nodeData)
+    
         # Identificar los nodos críticos a partir de los arcos críticos
         critical_edges = set(data["criticalPath"])
         critical_nodes = set()
@@ -66,6 +68,34 @@ class Response:
                 "holgura": info.get("holgura", 0),
                 "critical": nid in critical_nodes
             })
+    
+    def tiemposPert(self, graph, case):
+     """
+     Extrae los tiempos PERT (pesos) de las aristas del grafo y los almacena 
+     en el diccionario de respuesta bajo la clave correspondiente al caso.
+
+     Este método recorre todas las aristas del grafo, recupera el atributo
+     "weight" asociado a cada relación entre nodos y construye un diccionario
+     con el formato "A-B": valor. Finalmente, guarda estos tiempos PERT en
+     self.response usando una clave que identifica el caso procesado.
+
+     Args:
+        graph (networkx.DiGraph): Grafo que contiene los pesos en sus aristas.
+        case (str): Identificador del caso (por ejemplo, 'A' o 'B') para
+                    almacenar los datos bajo la clave "timposPert_case".
+     """
+     
+     tiemposPert = {}
+
+     for nodeA, nodeB in graph.edges():
+        te = graph.edges[nodeA, nodeB].get("weight")
+        tiemposPert[f"{nodeA}-{nodeB}"] = te
+
+     self.response[f"tiemposPert_{case}"] = tiemposPert
+
+
+        
+    
 
     def jsonResponse(self):
         """

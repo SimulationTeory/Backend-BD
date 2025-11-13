@@ -6,7 +6,7 @@ app = FastAPI()
 
 # Routers
 app.include_router(routes_simulacion.router, prefix="/api/simulacion")
-app.include_router(routes_datos.router, prefix="/api/datos")
+app.include_router(routes_datos.router, prefix="/api/datosSimulacio")
 
 
 origins = [
