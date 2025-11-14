@@ -3,10 +3,14 @@ class Response:
     Clase que construye y organiza las respuestas de los diferentes casos
     de simulación del proyecto . 
     """
+  
 
     def __init__(self):
         """Inicializa el objeto Response con un diccionario vacío para almacenar los resultados."""
         self.response = {}
+        
+      
+        
     
     def resposeCaseA(self, data, nodeData,graph):
         """
@@ -101,3 +105,5 @@ class Response:
         """
         # Retornar toda la respuesta combinada
         return self.response
+
+ 

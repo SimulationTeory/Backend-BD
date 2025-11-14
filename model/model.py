@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class DataJson(BaseModel):
+class DataSimulacion(BaseModel):
     """
     Modelo de datos utilizado para recibir la información JSON enviada desde el frontend
     hacia el backend de FastAPI.

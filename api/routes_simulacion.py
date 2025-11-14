@@ -1,11 +1,11 @@
 from fastapi import APIRouter, HTTPException
-from model.model import DataJson
+from model.model import DataSimulacion
 from services.process import Process
 
 router = APIRouter()
 
 @router.post("/")
-def simulacion(data: DataJson):
+def simulacion(data: DataSimulacion):
     
     n_nodes = len(data.nodes)
     if not (len(data.tiempo_op) == len(data.tiempo_es) == len(data.tiempo_pe) == n_nodes):
