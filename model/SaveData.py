@@ -30,4 +30,6 @@ class SaveData(BaseModel):
     probabilidad: float
 
     actividades: List[ActividadItem]
-    nodos: List[NodoItem]
+
+    nodesA: List[NodoItem]
+    nodesB: List[NodoItem]

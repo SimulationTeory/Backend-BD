@@ -8,7 +8,9 @@ router = APIRouter()
 def saveData(data : SaveData ):
 
     process = ProcessQuery()
-    print(data)
+    result = process.saveSimulacion(data.model_dump())
+    print(result)
+    return result
 
 
     
