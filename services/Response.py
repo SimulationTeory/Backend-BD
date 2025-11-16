@@ -91,6 +91,7 @@ class Response:
         tiemposPert[f"{nodeA}-{nodeB}"] = te
 
      self.response[f"tiemposPert_{case}"] = tiemposPert
+     print(self.response[f"tiemposPert_{case}"] )
 
 
         

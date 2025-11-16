@@ -33,6 +33,24 @@ class ResponseQuery:
 
         
         return table
+
+    def dataSimulaciones(self, data):
+     result = []
+
+     ids = list(data["id_simulacion"])
+     nombres = list(data["nombre_proyecto"])
+
+     for i in range(len(ids)):
+        result.append({
+            "id": ids[i],
+            "nombre": nombres[i]
+        })
+
+
+     return result
+
+    
+    
     
    
        

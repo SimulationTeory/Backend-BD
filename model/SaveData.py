@@ -5,7 +5,6 @@ from typing import List
 class ActividadItem(BaseModel):
     id_detalle: int
     te: float
-    varianza: float
 
 
 class NodoItem(BaseModel):
@@ -29,7 +28,8 @@ class SaveData(BaseModel):
     varianza_total: float
     probabilidad: float
 
-    actividades: List[ActividadItem]
+    actividadesA: List[ActividadItem]
+    actividadesB: List[ActividadItem]
 
     nodesA: List[NodoItem]
     nodesB: List[NodoItem]
