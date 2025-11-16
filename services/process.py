@@ -35,7 +35,7 @@ class Process:
        
        
        graph2 = graph.copy()
-       graph2[20][40]["weight"]= 0
+       graph2[40][60]["weight"]= 0
 
        early = self.graphCalc.calc_early(graph2)
        self.graphCalc.calc_last(graph2,early)
